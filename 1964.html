@@ -101,7 +101,7 @@ async function init() {
     .attr("transform","translate(0,6)")
     .text(function (d) {return d.Id; });
     
-    simulation.on("tick", ticked);
+    simulation.on("end", ticked);
 
     function ticked() {
     linksel.attr("x1", function(d) { return d.source.x; })
