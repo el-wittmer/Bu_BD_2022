@@ -50,7 +50,7 @@ async function init() {
     .force("link", d3.forceLink()
        .id(function(d) {return d.Id;}))
     .force("charge", d3.forceManyBody())
-    .force("center",d3.forceCenter(width / 2, height / 2))
+    .force("center",d3.forceCenter(width / 4, height / 4))
     .force("collide", d3.forceCollide(25));
 
     var nodes = test.nodes;
