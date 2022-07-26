@@ -44,7 +44,7 @@ height = +svg.attr("height");
 async function init() {
 
     const test = await d3.json('https://raw.githubusercontent.com/el-wittmer/Paul_1963/main/Paul_1964.json');
-    const color = ["blue", 'light blue', 'green', 'red', 'yellow', 'pink', 'orange', 'black', 'brown', 'white']
+    const color = ["blue", 'light blue', 'green', 'red', 'yellow', 'pink', 'orange', 'gray', 'brown', 'white']
 
     var simulation = d3.forceSimulation()
     .force("link", d3.forceLink()
