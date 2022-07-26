@@ -75,7 +75,7 @@ async function init() {
     .on("drag", dragged)
     .on("end", dragended));
 
-    nodesel.append("circle")
+    console.log(nodesel.append("circle")
     .attr("r", 20)
     .on("mouseover", function(d) {	
             div.transition()			
@@ -87,7 +87,7 @@ async function init() {
                 "<br>Topic: " + d.Cluster_Name)
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY) + "px");	
-            })					
+            }))					
         .on("mouseout", function(d) {		
             div.transition()			
                 .style("opacity", 0);	
