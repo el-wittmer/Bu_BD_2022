@@ -44,7 +44,7 @@ height = +svg.attr("height");
 async function init() {
 
     const test = await d3.json('https://raw.githubusercontent.com/el-wittmer/Paul_1963/main/Paul_1964.json');
-    const color = ["blue", 'light blue', 'green', 'red', 'yellow', 'pink', 'orange', 'black', 'brown']
+    const color = ["blue", 'light blue', 'green', 'red', 'yellow', 'pink', 'orange', 'black', 'brown', 'white']
 
     var simulation = d3.forceSimulation()
     .force("link", d3.forceLink()
@@ -77,6 +77,7 @@ async function init() {
 
     nodesel.append("circle")
     .attr("r", 20)
+    .attr("fill", function(d, i) {return color[d.Cluster]})
     .on("mouseover", function(d) {	
             div.transition()			
                 .style("opacity", .9);		
