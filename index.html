@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<style>
+* {
+    color: #000;
+    font-family: Palatino;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.button {
+    margin-left: 0;
+}
+.link line {stroke: black;}
+.node circle {stroke: black; fill: white}
+.node text {text-anchor: middle; font-size: 20px}
+div.tooltip {	
+    position: absolute;			
+    text-align: left;			
+    width: 400px;					
+    height: 100px;					
+    padding: 10px;				
+    font: 14px Palatino;		
+    background: salmon;	
+    border: 5px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}
+</style>
+<head>
+<h1>This is Paul et al. (1963).</h1>
+</head>
+
+<body onload='init()'>
+    <p>Paul et al. (1963) was published at a time when researchers were still trying to figure out the leading causes of 
+        Coronary Heart Disease (CHD). Paul et al. (1963) reports a multitude of findings related to CHD, and other researchers
+    were able to use these findings in their own research. In this way, Paul et al. (1963) was able to influence researchers
+    studying a wide variety of topics under the CHD umbrella. This slide show shows how citations accumulated over the first
+    five years of Paul et al.'s (1963) publication, which topic these publications cover, and how these communities built
+    around a research topic interact with other communities, if at all. </p>
+
+    <h3><span style="color: salmon; margin-left: 0">The circle represents a publication. Mousing over the circle will show 
+    the first author, title, publishing year, publishing journal, and topic.</span></h3>
+
+    <svg width=600 height=400></svg>
+<div id="tooltip" opacity=0></div>    
+
+<script>
+var svg = d3.select("svg")
+width = +svg.attr("width"), 
+height = +svg.attr("height");
+
+async function init() {
+
+    const test = await d3.json('https://raw.githubusercontent.com/el-wittmer/Paul_1963/main/Paul_1963.json');
+
+    var simulation = d3.forceSimulation()
+    .force("link", d3.forceLink()
+       .id(function(d) {return d.Id;}))
+    .force("charge", d3.forceManyBody())
+    .force("center",d3.forceCenter(width / 2, height / 2))
+    .force("collide", d3.forceCollide(35));
+
+    var nodes = test.nodes;
+    simulation.nodes(nodes)
+
+    var div = d3.select("body").append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0);
+
+    var nodesel = svg.selectAll(".node")
+    .data(nodes)
+    .enter().append("g")
+    .attr("class", "node")
+    .call(d3.drag()
+    .on("start", dragstarted)
+    .on("drag", dragged)
+    .on("end", dragended));
+
+    nodesel.append("circle")
+    .attr("r", 20)
+    .attr("fill", function(d, i) {return test})
+    .on("mouseover", function(d) {	
+            div.transition()			
+                .style("opacity", .9);		
+            div	.html("First Author: " + d.First_Author +
+                "<br>Title: " + d.Title + 
+                "<br>Publication Year: " + d.Publication_Year + 
+                "<br>Publication Source: " + d.Publication_Source + 
+                "<br>Topic: " + d.Cluster_Name)
+                .style("left", (d3.event.pageX) + "px")		
+                .style("top", (d3.event.pageY) + "px");	
+            })					
+        .on("mouseout", function(d) {		
+            div.transition()			
+                .style("opacity", 0);	
+        });
+
+    nodesel.append("text")
+    .attr("transform","translate(0,6)")
+    .text(function (d) {return d.Id; });
+    
+    simulation.on("tick", ticked);
+
+    function ticked() {
+
+    nodesel.attr("transform", function(d) {
+    return "translate(" + d.x + "," + d.y + ")";
+    });
+    }
+    function dragstarted(d) {
+    if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+    }
+    function dragged(d) {
+    d.fx = d3.event.x;
+    d.fy = d3.event.y;
+    }
+    function dragended(d) {
+    if (!d3.event.active) simulation.alphaTarget(0);
+    d.fx = null;
+    d.fy = null;
+    }
+    
+}
+</script>
+
+<a href="http://el-wittmer.github.io/Paul_1963/1964"><button type="button" class="button">Forward to 1964</button></a>
+</body>
+</html>
