@@ -42,7 +42,7 @@ div.tooltip {
     <h3><span style="color: salmon; margin-left: 0">The circle represents a publication. Mousing over the circle will show 
     the first author, title, publishing year, publishing journal, and topic.</span></h3>
 
-    <svg width=600 height=400></svg>
+    <svg width=600 height=200></svg>
 <div id="tooltip" opacity=0></div>    
 
 <script>
@@ -53,6 +53,7 @@ height = +svg.attr("height");
 async function init() {
 
     const test = await d3.json('https://raw.githubusercontent.com/el-wittmer/Paul_1963/main/Paul_1963.json');
+
 
     var simulation = d3.forceSimulation()
     .force("link", d3.forceLink()

@@ -18,7 +18,7 @@ div.tooltip {
     position: absolute;			
     text-align: left;			
     width: 400px;					
-    height: 110px;					
+    height: 150px;					
     padding: 10px;				
     font: 14px Palatino;		
     background: salmon;	
@@ -32,8 +32,17 @@ div.tooltip {
 </head>
 
 <body onload='init()'>
+    <p>In the third year of Paul et al.'s (1963) publication, the formation of communities based on topic starts to become clearer. 
+        Publications focused on caffeine (yellow) tend to cite other publications related to caffeiene. However some communities are
+        more dispersed and less connected to publications with similar topics, such as physical activity papers (pink) and diet papers
+        (green).
+    </p>
+    <p>In this year, a publication with a new topic cited Paul et al. (1963): node 49 discusses body fat and CHD development (purple). 
+        This shows that new topics are being added to the network as time goes on, and the citations to Paul et al. (1963) 
+        are not limited in topic.
+    </p>
 
-<svg width=600 height=400></svg>
+<svg width=600 height=500></svg>
 <div id="tooltip" opacity=0></div>    
 
 <script>
@@ -44,7 +53,7 @@ height = +svg.attr("height");
 async function init() {
 
     const test = await d3.json('https://raw.githubusercontent.com/el-wittmer/Paul_1963/main/Paul_1966.json');
-    const color = ["red", 'orange', 'yellow', 'green', 'blue', 'pink', 'lightpurple', 'lightblue', 'gray', 'white'];
+    const color = ["red", 'orange', 'yellow', 'green', '#a569bd', 'pink', 'purple', 'lightblue', 'gray', 'white'];
 
     var simulation = d3.forceSimulation()
     .force("link", d3.forceLink()
@@ -128,6 +137,5 @@ async function init() {
 </script>
 
 <a href="http://el-wittmer.github.io/Paul_1963/1965"><button type="button" class="button">Year Two: 1965</button></a>
-<a href="http://el-wittmer.github.io/Paul_1963/1967"><button type="button" class="button">Year Four: 1987</button></a>
 </body>
 </html>
