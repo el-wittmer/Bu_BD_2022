@@ -51,7 +51,7 @@ div.legend {
     five years of Paul et al.'s (1963) publication, which topic these publications cover, and how these communities built
     around a research topic interact with other communities, if at all. </p>
 
-    <h3><span style="color: salmon; margin-left: 0">The circle represents a publication. Mousing over the circle will show 
+    <h3><span style="color: salmon; margin-left: 0">Each numbered circle represents a publication. Mousing over the circle will show 
     the first author, title, publishing year, publishing journal, and topic.</span></h3>
 
     <svg width=700 height=200></svg>
@@ -63,27 +63,8 @@ var svg = d3.select("svg")
 width = +svg.attr("width"), 
 height = +svg.attr("height");
 
-svg.append("circle").attr("cx",10).attr("cy",10).attr("r", 6).style("fill", "red").style("stroke", "black");
-svg.append("circle").attr("cx",10).attr("cy",30).attr("r", 6).style("fill", "orange").style("stroke", "black");
-svg.append("circle").attr("cx",10).attr("cy",50).attr("r", 6).style("fill", "yellow").style("stroke", "black");
-svg.append("circle").attr("cx",10).attr("cy",70).attr("r", 6).style("fill", "green").style("stroke", "black");
-svg.append("circle").attr("cx",10).attr("cy",90).attr("r", 6).style("fill", "#a569bd").style("stroke", "black");
-svg.append("circle").attr("cx",10).attr("cy",110).attr("r", 6).style("fill", "pink").style("stroke", "black");
-svg.append("circle").attr("cx",10).attr("cy",130).attr("r", 6).style("fill", "purple").style("stroke", "black");
-svg.append("circle").attr("cx",10).attr("cy",150).attr("r", 6).style("fill", "lightblue").style("stroke", "black");
-svg.append("circle").attr("cx",10).attr("cy",170).attr("r", 6).style("fill", "gray").style("stroke", "black");
-svg.append("circle").attr("cx",10).attr("cy",190).attr("r", 6).style("fill", "white").style("stroke", "black");
-
-svg.append("text").attr("x", 20).attr("y", 15).text("Serum Cholesterol").style("font-size", "15px");
-svg.append("text").attr("x", 20).attr("y", 35).text("Blood Pressure").style("font-size", "15px");
-svg.append("text").attr("x", 20).attr("y", 55).text("Caffeine").style("font-size", "15px");
-svg.append("text").attr("x", 20).attr("y", 75).text("Diet").style("font-size", "15px");
-svg.append("text").attr("x", 20).attr("y", 95).text("Body Fat").style("font-size", "15px");
-svg.append("text").attr("x", 20).attr("y", 115).text("Physical Activity").style("font-size", "15px");
-svg.append("text").attr("x", 20).attr("y", 135).text("Alcohol").style("font-size", "15px");
-svg.append("text").attr("x", 20).attr("y", 155).text("Psychosocial Factors").style("font-size", "15px");
-svg.append("text").attr("x", 20).attr("y", 175).text("Smoking").style("font-size", "15px");
-svg.append("text").attr("x", 20).attr("y", 195).text("Undefined").style("font-size", "15px");
+svg.append("circle").attr("cx",10).attr("cy",40).attr("r", 6).style("fill", "white").style("stroke", "black");
+svg.append("text").attr("x", 20).attr("y", 45).text("Undefined (n = 1)").style("font-size", "15px");
 
 async function init() {
 
