@@ -63,9 +63,6 @@ var svg = d3.select("svg")
 width = +svg.attr("width"), 
 height = +svg.attr("height");
 
-svg.append("circle").attr("cx",10).attr("cy",40).attr("r", 6).style("fill", "white").style("stroke", "black");
-svg.append("text").attr("x", 20).attr("y", 45).text("Undefined").style("font-size", "15px");
-
 async function init() {
 
     const data = await d3.json('https://raw.githubusercontent.com/el-wittmer/Paul_1963/main/Paul_1963.json');
