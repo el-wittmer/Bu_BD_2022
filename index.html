@@ -26,6 +26,18 @@ div.tooltip {
     border-radius: 8px;			
     pointer-events: none;			
 }
+div.legend {
+    position: relative;
+    left: 600px;
+    top: -200px;
+    width: 400px;
+    height: 300px;
+    font: 14px Palatino;
+    background: white;
+    border: 5px;
+    border-color: black;
+    text-align: left;
+}
 </style>
 <head>
 <h1>This is Paul et al. (1963).</h1>
@@ -42,18 +54,41 @@ div.tooltip {
     <h3><span style="color: salmon; margin-left: 0">The circle represents a publication. Mousing over the circle will show 
     the first author, title, publishing year, publishing journal, and topic.</span></h3>
 
-    <svg width=600 height=200></svg>
+    <svg width=700 height=200></svg>
 <div id="tooltip" opacity=0></div>    
+<div id="legend"></div>
 
 <script>
 var svg = d3.select("svg")
 width = +svg.attr("width"), 
 height = +svg.attr("height");
 
+svg.append("circle").attr("cx",10).attr("cy",10).attr("r", 6).style("fill", "red").style("stroke", "black");
+svg.append("circle").attr("cx",10).attr("cy",30).attr("r", 6).style("fill", "orange").style("stroke", "black");
+svg.append("circle").attr("cx",10).attr("cy",50).attr("r", 6).style("fill", "yellow").style("stroke", "black");
+svg.append("circle").attr("cx",10).attr("cy",70).attr("r", 6).style("fill", "green").style("stroke", "black");
+svg.append("circle").attr("cx",10).attr("cy",90).attr("r", 6).style("fill", "#a569bd").style("stroke", "black");
+svg.append("circle").attr("cx",10).attr("cy",110).attr("r", 6).style("fill", "pink").style("stroke", "black");
+svg.append("circle").attr("cx",10).attr("cy",130).attr("r", 6).style("fill", "purple").style("stroke", "black");
+svg.append("circle").attr("cx",10).attr("cy",150).attr("r", 6).style("fill", "lightblue").style("stroke", "black");
+svg.append("circle").attr("cx",10).attr("cy",170).attr("r", 6).style("fill", "gray").style("stroke", "black");
+svg.append("circle").attr("cx",10).attr("cy",190).attr("r", 6).style("fill", "white").style("stroke", "black");
+
+svg.append("text").attr("x", 20).attr("y", 15).text("Serum Cholesterol").style("font-size", "15px");
+svg.append("text").attr("x", 20).attr("y", 35).text("Blood Pressure").style("font-size", "15px");
+svg.append("text").attr("x", 20).attr("y", 55).text("Caffeine").style("font-size", "15px");
+svg.append("text").attr("x", 20).attr("y", 75).text("Diet").style("font-size", "15px");
+svg.append("text").attr("x", 20).attr("y", 95).text("Body Fat").style("font-size", "15px");
+svg.append("text").attr("x", 20).attr("y", 115).text("Physical Activity").style("font-size", "15px");
+svg.append("text").attr("x", 20).attr("y", 135).text("Alcohol").style("font-size", "15px");
+svg.append("text").attr("x", 20).attr("y", 155).text("Psychosocial Factors").style("font-size", "15px");
+svg.append("text").attr("x", 20).attr("y", 175).text("Smoking").style("font-size", "15px");
+svg.append("text").attr("x", 20).attr("y", 195).text("Undefined").style("font-size", "15px");
+
 async function init() {
 
-    const test = await d3.json('https://raw.githubusercontent.com/el-wittmer/Paul_1963/main/Paul_1963.json');
-
+    const data = await d3.json('https://raw.githubusercontent.com/el-wittmer/Paul_1963/main/Paul_1963.json');
+    const color = ["red", 'orange', 'yellow', 'green', '#a569bd', 'pink', 'purple', 'lightblue', 'gray', 'white'];
 
     var simulation = d3.forceSimulation()
     .force("link", d3.forceLink()
@@ -62,7 +97,7 @@ async function init() {
     .force("center",d3.forceCenter(width / 2, height / 2))
     .force("collide", d3.forceCollide(35));
 
-    var nodes = test.nodes;
+    var nodes = data.nodes;
     simulation.nodes(nodes)
 
     var div = d3.select("body").append("div")	
@@ -80,7 +115,7 @@ async function init() {
 
     nodesel.append("circle")
     .attr("r", 20)
-    .attr("fill", function(d, i) {return test})
+    .attr("fill", function(d, i) {return data})
     .on("mouseover", function(d) {	
             div.transition()			
                 .style("opacity", .9);		
@@ -126,7 +161,7 @@ async function init() {
     
 }
 </script>
-
+<br>
 <a href="http://el-wittmer.github.io/Paul_1963/1964"><button type="button" class="button">Forward to 1964</button></a>
 </body>
 </html>
