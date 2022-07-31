@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<style>
+* {
+    color: #000;
+    font-family: Palatino;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.button {
+    margin-left: 0;
+}
+.link line {stroke: black;}
+.node circle {stroke: black; fill: white;}
+.node text {text-anchor: middle; font-size: 20px}
+div.tooltip {	
+    position: absolute;			
+    text-align: left;			
+    width: 400px;					
+    height: 150px;					
+    padding: 10px;				
+    font: 14px Palatino;		
+    background: salmon;	
+    border: 5px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}
+</style>
+<head>
+<h1>References</h1>
+</head>
+
+<body onload='init()'>
+
+    <p>PAUL, O., LEPPER, M. H., PHELAN, W. H., DUPERTUIS, G. W., MACMILLAN, A., MCKEAN, H., & PARK, H. (1963). A Longitudinal Study of Coronary Heart Disease. Circulation, 28(1), 20–31. <a href="https://doi.org/10.1161/01.cir.28.1.20">10.1161/01.cir.28.1.2</a>
+    </p>
+    <h3>Coding Resources:</h3>
+    <ul>
+    <li><a href="https://bl.ocks.org/d3noob/a22c42db65eb00d4e369">Tooltips</a></li>
+    <li><a href="https://observablehq.com/@ben-tanen/a-tutorial-to-using-d3-force-from-someone-who-just-learned-ho#xy_sect">Force Collide</a></li>
+    </ul>
+    </p>
+
+
+<a href="http://el-wittmer.github.io/Paul_1963/1966"><button type="button" class="button">Year Three: 1966</button></a>
+</body>
+</html>
