@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<link rel="stylesheet" href="./style.css" />
+<div class="content">
+    <head>
+        <h1>Year Three: 1966</h1>
+    </head>
+
+    <body onload='init()'>
+        <p>In the third year of Paul et al.'s (1963) publication, the formation of communities based on topic starts to become clearer. 
+            Publications focused on caffeine tend to cite other publications related to caffeiene. However some communities are
+            more dispersed and less connected to publications with similar topics, such as physical activity papers and diet papers.
+        </p>
+        <p>In this year, a publication with a new topic cited Paul et al. (1963): node 49 discusses body fat and CHD development (purple). 
+            This shows that new topics are being added to the network as time goes on, and the citations to Paul et al. (1963) 
+            are not limited in topic.
+        </p>
+
+    <svg width=1000 height=500></svg>
+    <div id="tooltip" opacity=0></div>    
+
+    <script src="./scripts/1966script.js"></script>
+
+    <div class="button-backward">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="salmon" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z"/>
+          </svg><a href="./1965.html"><button type="button" class="button">Back to 1965</button></a>
+    </div>
+    <div class="button-forward">
+        <a href="./references.html"><button type="button" class="button">References</button></a><svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="salmon" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8Zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5Z"/>
+        </svg>
+    </div>
+    </body>
+</div>
+</html>

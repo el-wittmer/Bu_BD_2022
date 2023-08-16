@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<link rel="stylesheet" href="./style.css" />
+<div class="content">
+    <head>
+        <h1>Year Two: 1965</h1>
+    </head>
+
+        <body onload='init()'>
+            <p>By the end of the second year of Paul et al.'s (1963) life, some inter-topic connections start to form. For example, node 2 (topic: serum cholesterol) is cited by
+                both nodes 33 (topic: psychosocial factors) and 19 (topic: blood pressure). There are still some close connections forming within a single topic, such as nodes
+                3, 20, and 30, which all pertain to caffeine, but there are inter-topic connections forming at this point in time.</p>
+
+        <svg width=800 height=450></svg>
+        <div id="tooltip" opacity=0></div>  
+
+        <script src="./scripts/1965script.js"></script>
+
+        <div class="button-backward">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="salmon" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z"/>
+              </svg><a href="./1964.html"><button type="button" class="button">Back to 1964</button></a>
+        </div>
+        <div class="button-forward">
+            <a href="./1966.html"><button type="button" class="button">Forward to 1966</button></a><svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="salmon" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8Zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5Z"/>
+        </svg>
+    </div>
+    </body>
+</div>
+</html>

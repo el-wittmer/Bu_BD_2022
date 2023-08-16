@@ -1,0 +1,76 @@
+
+* {
+    color: #000;
+    font-family: Palatino;
+}
+.content {
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: white;
+}
+.button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid salmon;
+    font-size: 1rem;
+    padding: .5rem;
+  }
+.button:hover {
+    background-color: salmon;
+    color: white;
+}
+.button-forward {
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-backward {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link line {stroke: black;}
+.node circle {stroke: black; fill: white}
+.node text {text-anchor: middle; font-size: 20px}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: left;			
+    width: 400px;					
+    height: 100px;					
+    padding: 10px;				
+    font: 14px Palatino;		
+    background: salmon;	
+    border: 5px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}
+div.legend {
+    position: relative;
+    left: 600px;
+    top: -200px;
+    width: 400px;
+    height: 300px;
+    font: 14px Palatino;
+    background: white;
+    border: 5px;
+    border-color: black;
+    text-align: left;
+}
+
+li {
+    list-style:square;
+    margin: 0;
+    padding: 0;
+}
+
+.citation {
+    padding-left: 2rem;
+}
+
+.emphasize {
+    color: salmon; 
+}
