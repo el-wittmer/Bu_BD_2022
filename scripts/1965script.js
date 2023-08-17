@@ -22,7 +22,7 @@ svg.append("text").attr("x", 20).attr("y", 185).text("Undefined").style("font-si
 
 async function init() {
 
-    const data = await d3.json('https://raw.githubusercontent.com/el-wittmer/Paul_1963/data/Paul_1965.json');
+    const data = await d3.json('https://raw.githubusercontent.com/el-wittmer/Paul_1963/main/data/Paul_1965.json');
     const color = ["red", 'orange', 'yellow', 'green', '#a569bd', 'pink', 'purple', 'lightblue', 'gray', 'white'];
 
     var simulation = d3.forceSimulation()
